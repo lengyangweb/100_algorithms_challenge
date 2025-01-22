@@ -1,7 +1,6 @@
 export function addBorder(picture: string[]): string[] {
-    const borders = "*****";
+    const borders = '*'.repeat(picture[0].length + 2);
     let pictures: string[] = [];
-
 
     picture.forEach((el) => {
         if (el.includes(',')) {
