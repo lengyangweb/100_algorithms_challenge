@@ -1,16 +1,18 @@
 export function addBorder(picture: string[]): string[] {
     const borders = "*****";
     let pictures: string[] = [];
-    if (picture.some((el) => el.includes(','))) {
 
-    }
-    pictures = picture.map((picture) => {
-        if (picture.includes(',')) {
-            return picture.split(',').map((el) => `*${el.trim()}*`)
+
+    picture.forEach((el) => {
+        if (el.includes(',')) {
+            const els = el.split(',').map((el2) => el2.trim());
+            pictures = [...pictures, ...els];
         } else {
-            return `*${picture}*`
+            pictures = [...pictures, el];
         }
-    });
+    })
+
+    pictures = pictures.map((pic) => `*${pic}*`);
     pictures.unshift(borders);
     pictures.push(borders);
     return pictures;
